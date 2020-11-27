@@ -1,0 +1,67 @@
+Integer Break
+1. The solution to this problem is to store previously integer breaks of sub problems. 
+There exists repeated work for a given integer if you are trying to find the maximum product.
+
+For example:
+If given an integer 10
+
+That means this is how many possibilities to add to integer 10
+
+With at least two integers:
+1+9
+2+8
+3+7
+4+6 -
+5+5  --> where 5 * 5 -->25 but we can break them even further 
+6+4
+7+3
+8+2
+9+1
+
+1+9 --> 1 + (1 + 8)
+2+8 --> 2 + (4 + 4)
+3+7 --> 3 + (3 + 4) --> which according to the example solution this is the answer 3*3*4
+....
+And many more possibilities
+
+Let's take a look at trying to find the integer break of 7
+With at least two integers:
+1+6
+2+5
+3+4 --> 3*4 --> 12 so this would be the answer
+----the rest is repeated work so this means if this first integer is greater than the second,
+we don't have re calculate
+4+3
+3+4
+2+5
+1+6
+
+Notice back in our example for integer 10 at  3 + (3+4). We have this 3 + 4 which is the product to find the integer break of 7 (3*4=12)
+
+So if we think of this:
+
+3 + integer break of 7 ==> 3 * 12 ==> 36 which is the answer.
+
+There is clearly a recursive definition which says that if you know the integer break of a previous sub problem to
+use, you can multiply that integer break to the second integer. So the first integer is the sub problem integer break, and the second
+integer is the one that belongs to the problem you are at.
+
+2.We can store these sub problem integer breaks into an array of size n + 1 where the last element pertains to our solution
+of the problem where we use two variables where the first pertains the integer we are trying to solve, and the second pertains the integer
+we want to multiply if that makes sense.
+
+3. IDEAL 
+IDEAL helped me recognize identify the problem through small instances, to try to achieve what 
+is my end goal which was trying to identify "maximum" product to be the integer break of a positive integer.
+I evaluated my goal through recognizing what certain pattern gives me hints or the right directions to solve this problem.
+I debugged and tested my problem to anticipate the outcome. Finally, I reflected what I did in certain steps, how I looped through the problem
+
+Duke 7 steps:
+1.I used the sample solutions given from the problem
+2. I tried to write down what certain patterns I recognized about the problem including what sub "integer breaks" I could use.
+3. I noticed the pattern of repeated work in this problem when finding the integer break of another sub problem within the problem I am trying to solve.
+4. I traced my pseudo code/ drawing by hand in my personal white board.
+5. I attempted to translate my logic/pseudo code/drawing to code
+6. I attempted to break my code and try to come up with good edge cases to solve this problem.
+7. I have experience debugging problems so I went back to step 5 to change some things that did not work at first.
+
