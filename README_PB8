@@ -1,15 +1,58 @@
 Perfect Squares
 1.
-2.
+This problem does present some kind of recursive definition when trying to find least number of perfect square numbers given an integer n.
+Let's take the integer 12
+
+First of all, what is a perfect square number?
+
+A perfect square number is a number made by squaring a whole number:
+
+Ex: 16 is a perfect square number because 4*4 = 16
+Ex: 25 is a perfect square number because 5*5 = 25
+
+The output for this integer would be 3 because 12 = 4 + 4 + 4 (3 4's in which each are perfect square numbers)
+
+1 , 4, ,9 are all the perfect squares numbers less than 12 
+PROOF:
+ 1*1 = 1
+ 2*2 = 4
+ 3*3 = 9
+ Therefore 1, 4 and 9 are perfect square numbers
+
+ If we are given an integer who is not a perfect number, I expect the value to be zero as the output
+
+If we solve these sub problems:
+N   | Output  | reason
+1       1         1 = 1  
+4       4         1 + 1 + 1 + 1  = 4
+9       3         4 + 4 + 1 = 9
+If we analyze it a little more you can see there are some recurisve definitions to get the output for the integer 12
+
+N   | Output  | reason
+12    3          12 = 1 + 11 --> 1 + perfect_square(11) --> 1 + (9 + 1 + 1)-- > 4 
+                 12 = 4 + 8 -->  4 + perfect_square(8) -- > 4 + (4 + 4) -- > 3 -------------->3 is our answer
+                 12 = 9 + 3 -->  9 + perfect_square(3) --> 9 + (1 + 1 + 1) --> 4 
+                 and..many more possibilities but we just need to find the minimum
+
+Storing these sub problems into a data structure will help solve the overall solution of the problem without since overlapping work does exists
+in this problem
+
+
+2. Storing these sub problems to an array data structure will be useful where the first two indexes pertain to 0 and 1 since these are outputs to their
+corresponding sub problems given an integer of 0 and 1. Afterwards, the last element of the sub problem array should be the answer.
 
 3.
 IDEAL 
+IDEAL helped me recognize identify the problem through small instances, to try to achieve what 
+is my end goal which was trying to identify "minimum" number of perfect squares given an integer
+I evaluated my goal through recognizing what certain pattern gives me hints or the right directions to solve this problem.
+I debugged and tested my problem to anticipate the outcome. Finally, I reflected what I did in certain steps, how I looped through the problem.
 
 Duke 7 Steps
-1.
-2.
-3.
-4.
-5.
-6.
-7.
+1.I used the sample solutions given from the problem
+2. I tried to write down what certain patterns I recognized about the problem including what sub "minimum prefect square count" I could use.
+3. I noticed the pattern of repeated work in this problem when finding the integer break of another sub problem within the problem I am trying to solve.
+4. I traced my pseudo code/ drawing by hand in my personal white board.
+5. I attempted to translate my logic/pseudo code/drawing to code
+6. I attempted to break my code and try to come up with good edge cases to solve this problem.
+7. I have experience debugging problems so I went back to step 5 to change some things that did not work at first.
