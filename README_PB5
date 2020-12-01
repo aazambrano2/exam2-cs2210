@@ -1,9 +1,9 @@
-Minimum Falling Path Sum
+Maximum Length of Pair Chain
 1.
 2.
 Duke 7 Steps
 1.I used the sample solutions given from the problem
-2. I tried to write down what certain patterns I recognized about the problem including what sub 
+2. I tried to write down what certain patterns I recognized about the problem including what sub problems I can solve.
 3. I noticed the pattern of repeated work in this problem when finding the integer break of another sub problem within the problem I am trying to solve.
 4. I traced my pseudo code/ drawing by hand in my personal white board.
 5. I attempted to translate my logic/pseudo code/drawing to code
