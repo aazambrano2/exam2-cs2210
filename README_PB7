@@ -1,8 +1,72 @@
 Partition to K Equal Sum Subsets
 1.
-2.
+
+This problem can presented in the following way:
+
+Lets say we have this array or list [1,2,3]
+
+So the input would be [1,2,3] and let k = 2
+Expected output true since [[1,2][3]]
+But if k = 3
+Then the output would be false because there cant be 3 subsets with equal sums in this array.
+
+Let arraySum be the sum of all the index values (in this case it will be 6 (1 + 2 + 3) )
+
+If arraySum is divisable by k, then the it is possible to divide the subsets by k (return True)
+    else, return False
+
+If we store smaller sub problems into an array, we can find a way to solve the larger solution of the problem
+
+Lets say we have array  A of size k  where each is stored a list of lists (in this case lets work with the small example)
+0  1  2  3
+
+A = [[],[],[]]
+
+Lets also say we have a boolean array that can store our values
+boolean_array  [false, false, false, false]
+
+Each index pertains to k subsets
+
+A[0] means we are working with k = 0
+[1,2,3]
+
+6/0 is not possible 
+
+output false 
+
+A[1] means we are working with k = 1
+[1,2,3]
+6/1 is 6 so there is a possible combination
+At A[1] we can use  [1,2,3] because 6-3-2-1 = 0 or 6-A[0] = 0
+[[6],[1,2,3],[]]
+
+output is true 
+[false, true, false]
+
+A[2] means we are working with k = 2
+6%2 = 0 which means it is divisable 
+[1,2] [3] --> true
+Lets focus on A[2]
+
+[6,0,6,6]
+
+A[2] = 6 - (1 - 2) = 3 - 3 = 0 
+This can be express as this as well
+
+6 - sumOFpartionOfK([1,2,3]) which is 6 - 6 = 0 and the output would be true
+
+output is true 
+[false, true, true]
+
+
+2. Since it seems to be storing multiple values in multiple arrays, I would use some kind of 2d array to store the answers of my sub problems in each index.
 
 3.IDEAL 
+IDEAL helped me recognize identify the problem through small instances, to try to achieve what 
+is my end goal which was trying to identify "possible" solution so that all k subsets have equal sum.
+I evaluated my goal through recognizing what certain pattern gives me hints or the right directions to solve this problem.
+I debugged and tested my problem to anticipate the outcome. Finally, I reflected what I did in certain steps, how I looped through the problem.
+
 Duke 7 Steps
 1.I used the sample solutions given from the problem
 2. I tried to write down what certain patterns I recognized about the problem including what sub 
@@ -10,4 +74,5 @@ Duke 7 Steps
 4. I traced my pseudo code/ drawing by hand in my personal white board.
 5. I attempted to translate my logic/pseudo code/drawing to code
 6. I attempted to break my code and try to come up with good edge cases to solve this problem.
-7. I have experience debugging problems so I went back to step 5 to change some things that did not work at first.
+7. I have experience debugging problems so I went back to step 5 to change some things that did not work at first. But 
+got stuck in a loop hole how to solve this problem
