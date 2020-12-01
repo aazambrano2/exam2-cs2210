@@ -34,6 +34,7 @@ def integer_break(n):
     return sub_problems[-1]
 
 def partition_to_k_equal_sum_subsets():
+    #N/A
     pass
 
 def perfect_squares(n):
