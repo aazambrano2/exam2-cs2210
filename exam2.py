@@ -6,13 +6,15 @@ def p1():
 def p2():
     pass
 
-def p3():
+def minimum_ASCII_delete_sum_for_two_strings():
+    #NA
     pass
 
 def p4():
     pass
 
-def p5():
+def maximum_length_of_pair_chain():
+    #N/A
     pass
 
 def integer_break(n):
