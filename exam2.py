@@ -7,7 +7,7 @@ def p2():
     pass
 
 def minimum_ASCII_delete_sum_for_two_strings():
-    #NA
+    #Na
     pass
 
 def p4():
