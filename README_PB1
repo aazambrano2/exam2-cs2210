@@ -1,0 +1,75 @@
+Maximum Length of Pair Chain
+1.
+The problem can be presented in the following way:
+
+[[1,2,3],[4,5,6],[7,8,9]]
+
+As another view:
+
+Let A be this array
+
+|[1,2,3]|
+|[4,5,6]|
+|[7,8,9]|
+
+Output: 12 because 1-->4--->7 in other words A[0][0]----->A[0][1]----->A[0][2] --> 3 starts and 17 possible finishes 2^(k+1) + 1 =17
+Since the possible falling paths are:
+The possible falling paths are:
+•	[1,4,7], [1,4,8], [1,5,7], [1,5,8], [1,5,9]
+•	[2,4,7], [2,4,8], [2,5,7], [2,5,8], [2,5,9], [2,6,8], [2,6,9]
+•	[3,5,7], [3,5,8], [3,5,9], [3,6,8], [3,6,9]
+
+But how do we get to that solution?
+
+We can store all of these solutions in some kind of data structure so that we know when use it the next time we need it.
+
+
+Let B be the  array  with size of the orignal array given (lets say an n X n) that will contains sub problems of the big problem and each one is initialized as zero:
+  i  0 1 2
+  B [0,0,0]
+
+  Each index value should contain the sum of the falling paths starting from those possible start points
+
+B[0] represents the solution to the answer if we start "traveling" the array starting from index i=0 
+
+There are 5 possible ways to transverse down 
+
+    [1,4,7], [1,4,8], [1,5,7], [1,5,8], [1,5,9]                                                                           |
+SUM: 12         13       13       14       15 ===========> Minimum = 12                                                  |
+                                                                                                                        |
+B[0] represents the solution to the answer if we start "traveling" the array starting from index i=0 and index j = 1 |Minimum of the minimum from the sum all possible paths = 12
+                                                                                                                        |
+There are 7 possible ways to transverse down                                                                             |
+                                                                                                                          |
+    [2,4,7], [2,4,8], [2,5,7], [2,5,8], [2,5,9], [2,6,8], [2,6,9]
+SUM: 13         14       14       15       16        16       17    ===========> Minimum = 13
+
+B[2] represents the solution to the answer if we start "traveling" the array starting from index i=0 and index j = 2
+
+There are 5 possible ways to transverse down 
+
+    [3,5,7], [3,5,8], [3,5,9], [3,6,8], [3,6,9]
+SUM:  15        16       17       17       18         ===========> Minimum = 15
+
+By the way each choice are possible since each row choice is different from the previous row column by at most one.
+This is mostly saying that you can't start and go left or right immediately, you are force to go diagonally or down.
+
+There is repeated work, but I am not sure what exactly to store into my "dynammic programming" data structure.
+
+2. I would use some kind of array, possibly a 2d array that will enable me to store the sub "minimum sum possible path" where maybe the last index will be the solution
+to my problem
+
+3.IDEAL
+IDEAL helped me recognize identify the problem through small instances, to try to achieve what 
+is my end goal which was trying to identify "minimum" sum of a falling path and try to store it.
+I evaluated my goal through recognizing what certain pattern gives me hints or the right directions to solve this problem.
+I debugged and tested my problem to anticipate the outcome. Finally, I reflected what I did in certain steps, how I looped through the problem
+
+Duke 7 Steps
+1.I used the sample solutions given from the problem
+2. I tried to write down what certain patterns I recognized about the problem including what sub problems I can solve.
+3. I noticed the pattern of repeated work in this problem when finding the integer break of another sub problem within the problem I am trying to solve.
+4. I traced my pseudo code/ drawing by hand in my personal white board.
+5. I attempted to translate my logic/pseudo code/drawing to code but it was difficult trying to translate my logic to code.
+6. I could not reach to this step since I was stuck on step 5
+7. I could not reach to this step since I was stuck on step 5

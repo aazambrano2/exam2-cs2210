@@ -1,0 +1,92 @@
+Minimum ASCII Delete Sum for Two Strings
+1
+This problem is similar to the edit distance problem
+Lets say s1 and s2 are the "indexes" of a 2d array
+
+
+s1= "sea"
+
+s2 = "eat"
+
+Our array:
+
+    " " e  a  t
+" "  0  0  0  0
+s    0  0  0  0
+e    0  0  0  0
+a    0  0  0  0
+
+We need to remember that we can have three operations
+add, remove and replace
+
+We add when we go -> (right) direction
+
+We remove only if we visit an index where character of the string is the same  \ (diagonal)
+and if we go down | (lets say this is our down arrow)
+
+We replace only if we visit an index where character of the string is  NOT the same  \ (diagonal)
+
+Lets populate the base cases and solve this problem.
+    " " e  a  t
+" "  0  1  2  3
+s    1  1  2  3
+e    2  1  2  3
+a    3  2  1  2 --> if we solve the edit distance problem 2 would be the minimum number of operations to convert the first string to the second operations
+
+All we have to focus on is the delete operations WHEN TWO CHARACTERS ARE NOT THE SAME
+
+If we trace this back
+
+    " " e  a  t
+" "  0\  1  2  3
+s    1  1|  2  3
+e    2  1 \ 2  3
+a    3  2  1-> 2
+
+sea --> ea (s is deleted) -->eat (t is added) 
+
+if s is deleted the asci value of s is 115
+
+So we can store all the deleted Ascii value characters in some kind of variable 
+
+Now what if we switch the strings where s1,s2 = s2, s1 (s1 = s2 and s2 = s1)
+
+    " " s  e  a
+" "  0  1  2  3
+e    1  1  1  2
+a    2  2  2  1
+t    3  3  3  2
+
+and trace this back
+
+    " " s  e  a
+" "  0 \ 1  2  3
+e    1  1\  1  2
+a    2  2  2\  1
+t    3  3  3 | 2
+
+So t is removed and the ascii value of t is 116
+
+Adding the answer to the first scinerio and the second scinerio would give us the expected output of 231
+
+2. Re using the edit distance problem where you store the minimum number of operations to for each index that represents 
+sub problem of the main problem and storing the ascii value of the character that was visited if the delete operation 
+exists where two characters are not the same happens would be the way I would solve this problem.  Edit distance itself is
+already a dynammic programming problem. It is just the matter of what kind of output we can use this algorithm to get the solution we want.
+
+
+3.
+3.IDEAL
+IDEAL helped me recognize identify the problem through small instances, to try to achieve what 
+is my end goal which was trying to identify "minimum" number of operations done when changing s1 to s2
+I evaluated my goal through recognizing what certain pattern gives me hints or the right directions to solve this problem.
+I debugged and tested my problem to anticipate the outcome. Finally, I reflected what I did in certain steps, how I looped through the problem
+
+Duke 7 Steps
+1.I used the sample solutions given from the problem
+2. I tried to write down what certain patterns I recognized about the problem including what sub problems I can solve.
+3. I noticed the pattern of repeated work in this problem when finding the integer break of another sub problem within the problem I am trying to solve.
+4. I traced my pseudo code/ drawing by hand in my personal white board.
+5. I attempted to translate my logic/pseudo code/drawing to code but it was difficult trying to translate my logic to code.
+6. I could not reach to this step since I was stuck on step 5
+7. I could not reach to this step since I was stuck on step 5
